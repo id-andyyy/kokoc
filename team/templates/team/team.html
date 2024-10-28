@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %} Команда {% endblock %}
+{% block content %}
+<section class="team">
+    <h2 class="team__heading text-center">Команда</h2>
+    <div class="team__nav mb-3">
+        <ul class="nav nav-pills justify-content-center">
+            <li class="nav-item">
+                {% if type == 'active' %}
+                <a class="nav-link active" href="?type=active">Действующие игроки</a>
+                {% else %}
+                <a class="nav-link" href="?type=active">Действующие игроки</a>
+                {% endif %}
+            </li>
+            <li class="nav-item">
+                {% if type == 'inactive' %}
+                <a class="nav-link active" href="?type=inactive">Бывшие игроки</a>
+                {% else %}
+                <a class="nav-link" href="?type=inactive">Бывшие игроки</a>
+                {% endif %}
+            </li>
+            <li class="nav-item">
+                {% if type == 'representatives' %}
+                <a class="nav-link active" aria-current="page" href="?type=representatives">Представители</a>
+                {% else %}
+                <a class="nav-link" href="?type=representatives">Представители</a>
+                {% endif %}
+            </li>
+        </ul>
+    </div>
+    <div class="animation team__content row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xxl-4 g-4">
+        {% for player in team %}
+        {% if type == 'active' and player.is_active %}
+        {% include "team/inc/_team_card.html" %}
+        {% elif type == 'inactive' and player.is_active == False %}
+        {% include "team/inc/_team_card.html" %}
+        {% elif type == 'representatives'%}
+        {% include "team/inc/_coach_card.html" %}
+        {% endif %}
+        {% endfor %}
+    </div>
+</section>
+
+{% endblock %}

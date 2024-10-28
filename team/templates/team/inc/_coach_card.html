@@ -1,0 +1,17 @@
+<div class="col">
+    <div class="card team__card h-100 mx-auto">
+        <a href="/player_info/?id={{ player.id }}">
+            <img src="{{ player.photo }}" class="card-img-top" alt="Фото игрока">
+        </a>
+        <div class="card-body text-center">
+            <h4 class="card-title">
+                <a href="/player_info/?id={{ player.id }}" class="text-dark text-decoration-none">{{ player.name }}</a>
+            </h4>
+            <div class="card-text mt-3">
+                <p><strong>Роль:</strong> {{ player.role }}</p>
+                <p><strong>Возраст:</strong> {{ player.calculate_age }}</p>
+                <p><strong>Дата рождения:</strong> {{ player.birthdate }}</p>
+            </div>
+        </div>
+    </div>
+</div>

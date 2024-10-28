@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} {{ product.name }} {% endblock %}
+{% block content %}
+<style>
+    .product1-image {
+        max-height: 400px;
+        object-fit: cover;
+        transition: transform 0.3s ease-in-out;
+    }
+    .product1-image:hover {
+        transform: scale(1.05);
+    }
+    .thumbnail1 {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        cursor: pointer;
+        opacity: 0.6;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        margin-right: 10px;
+    }
+    .thumbnail1:last-child {
+        margin-right: 0;
+    }
+    .thumbnail1:hover, .thumbnail.active {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+    .thumbnail1-wrapper {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap; /* Перенос миниатюр на новую строку, если их много */
+    }
+    @media (max-width: 768px) {
+        .product-image {
+            max-height: 300px;
+        }
+        .thumbnail {
+            width: 60px;
+            height: 60px;
+        }
+    }
+
+</style>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <img src="{{ product.photo1.url }}" alt="Product" class="img-fluid rounded mb-3 product1-image"
+                 id="mainImage">
+            <div class="thumbnail-wrapper">
+                <img src="{{ product.photo1.url }}" alt="Thumbnail 1" class="thumbnail1 rounded active"
+                     onclick="changeImage(event, this.src)">
+                {% if product.photo2 %}
+                <img src="{{ product.photo2.url }}" alt="Thumbnail 2" class="thumbnail1 rounded"
+                     onclick="changeImage(event, this.src)">
+                {% endif %}
+                {% if product.photo3 %}
+                <img src="{{ product.photo3.url }}" alt="Thumbnail 3" class="thumbnail1 rounded"
+                     onclick="changeImage(event, this.src)">
+                {% endif %}
+
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h2 class="mb-3">{{ product.name }}</h2>
+            <div class="mb-3">
+                <span class="h4 me-2">{{ product.price }} Кокосиков</span>
+            </div>
+            <p class="mb-4">{{ product.description }}</p>
+            <button class="btn btn-primary btn-lg mb-3 me-2" id="buyButton">
+                <i class="bi bi-cart-plus"></i> Купить
+            </button>
+        </div>
+    </div>
+</div>
+{% if points >= product.price %}
+<div id="notification"
+     style="position: fixed; top: 20px; right: 20px; background-color: #28a745; color: white; padding: 10px 20px; display: none; border-radius: 5px;">
+    Успешная покупка!
+</div>
+{% else %}
+<div id="notification"
+     style="position: fixed; top: 20px; right: 20px; background-color: #d81159; color: white;  padding: 10px 20px; display: none; border-radius: 5px; border-color: black;">
+    Недостаточно бонусов!
+</div>
+{% endif %}
+
+<script>
+    function changeImage(event, src) {
+        document.getElementById('mainImage').src = src;
+        document.querySelectorAll('.thumbnail').forEach(thumb => thumb.classList.remove('active'));
+        event.target.classList.add('active');
+    }
+
+    document.getElementById('buyButton').addEventListener('click', function() {
+        const notification = document.getElementById('notification');
+        notification.style.display = 'block';
+        setTimeout(() => {
+            notification.style.display = 'none';
+        }, 3000);
+    });
+</script>
+
+{% endblock %}

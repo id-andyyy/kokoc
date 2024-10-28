@@ -1,0 +1,22 @@
+{% load static %}
+<a href="news/{{news.id}}" class="news__link card text-bg-dark">
+    <img src="media/{{news.photo}}"
+         class="last-news__img card-img" alt="Фото">
+    <div class="card-img-overlay d-flex flex-column justify-content-between">
+        <div class="news-last__title">
+            <h3 class="card-title">{{news.title}}</h3>
+            <p class="card-text">{{news.content|truncatewords:8}}</p>
+        </div>
+        <div class="d-flex justify-content-start">
+            <div class="card-link">{{news.created_at}}</div>
+            <div class="card-link news__stats d-flex align-items-center gap-1">
+                <div>{{news.count_likes}}</div>
+                <img src="{% static 'img/heart.png' %}" alt="лайков">
+            </div>
+            <div class="card-link news__stats d-flex align-items-center gap-1">
+                <div>{{news.count_comments}}</div>
+                <img src="{% static 'img/comment.png' %}" alt="комментариев">
+            </div>
+        </div>
+    </div>
+</a>

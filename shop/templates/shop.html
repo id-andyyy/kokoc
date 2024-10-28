@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %} Магазин {% endblock %}
+{% block content %}
+<section class="shop">
+    <div class="animation">
+        <div class="row">
+            {% for product in shop %}
+            <div class="col-md-3 col-sm-6" style="margin-bottom: 2%;">
+                <div class="product-grid">
+                    <div class="product-image">
+                        <a href="/shop/product/?id={{ product.id }}" class="image">
+                            <img class="pic-1" src="media/{{ product.photo1 }}">
+                            {% if product.photo2 %}
+                            <img class="pic-2" src="media/{{ product.photo2 }}">
+                            {% else %}
+                            <img class="pic-2" src="media/{{ product.photo1 }}">
+                            {% endif %}
+                        </a>
+                        {% if product.sale %}
+                        <span class="product-sale-label">Скидка</span>
+                        {% endif %}
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a href="/shop/product/?id={{ product.id }}">{{ product.name }}</a></h3>
+                        <div class="price">{{product.price}} Кокосиков
+                            {% if product.old_price %}
+                            <span>{{ product.old_price }} Кокосиков</span>
+                            {% endif %}
+                        </div>
+                        <a href="/shop/product/?id={{ product.id }}" class="buy-now">Купить</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% load static %}
+<div class="col news__col">
+    <a class="card news__card mx-auto" href="news/{{news.id}}">
+        <img src="media/{{news.photo}}"
+             class="card-img-top"
+             alt="Фото">
+        <div class="card-body">
+            <h5 class="card-title">{{news.title}}</h5>
+            <p class="card-text">{{news.content|truncatewords:5}}</p>
+        </div>
+        <div class="card-body d-flex justify-content-between align-items-end">
+            <div class="card-link">{{news.created_at}}</div>
+            <div class="card-link news__stats d-flex align-items-center gap-1">
+                <div>{{news.count_likes}}</div>
+                <img src="{% static 'img/heart.png' %}" alt="лайков">
+            </div>
+            <div class="card-link news__stats d-flex align-items-center gap-1">
+                <div>{{news.count_comments}}</div>
+                <img src="{% static 'img/comment.png' %}" alt="комментариев">
+            </div>
+        </div>
+    </a>
+</div>

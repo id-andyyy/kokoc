@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+    .team-logo {
+        width: 50px;
+        height: auto;
+    }
+
+    .team-container {
+        display: flex;
+        align-items: center;
+    }
+
+    .team-name {
+        margin-left: 10px;
+        font-weight: bold;
+    }
+
+    /* Адаптивность для небольших экранов */
+    @media (max-width: 576px) {
+        .team-logo {
+            width: 30px;
+        }
+
+        .team-name {
+            font-size: 0.9rem;
+        }
+
+
+        h2, h3 {
+            font-size: 1.2rem;
+        }
+    }
+
+    .timer-container {
+        background-color: #f8f9fa;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-bottom: 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    padding-top: 25px;
+    height: 0;
+}
+.wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+</style>
+
+<div class="container mt-5">
+    <!-- Таймер до ближайшего матча -->
+    <div class="row justify-content-center text-center">
+        <div class="col-12 col-md-8">
+            <div class="timer-container">
+                <!-- Левая команда -->
+                <div class="team-container">
+                    <img src="{% static 'img/kokoc_logo.png' %}" alt="{{ next_match.team1_name }} logo"
+                         class="team-logo">
+                    <span class="team-name">Кокос Групп</span>
+                </div>
+
+                <!-- Таймер -->
+                <div>
+                    <h2>Счёт:</h2>
+                    <h1 id="timer" class="mb-3"></h1>
+                    <h3>{{match.stats}}</h3>
+                </div>
+
+                <!-- Правая команда -->
+                <div class="team-container">
+                    <span class="team-name" style="padding: 10px;">{{ match.opponent }}</span>
+                    <img src='{{ match.logo1 }}' alt="{{ match.opponent }} logo" class="team-logo">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% if match.link %}
+{% if source == 'vk' %}
+<div class="wrapper">
+    <iframe src="{{match.link}}"
+            allow="encrypted-media; fullscreen; picture-in-picture;" class="embed-responsive-item"
+            frameborder="0" allowfullscreen></iframe>
+    {% else %}
+    <div class="wrapper">
+        <iframe class="embed-responsive-item" src="{{match.link}}" allowfullscreen
+                style="border-radius:20px;background:#ffffff;padding:5px;"></iframe>
+    </div>
+    {% endif %}
+    {% endif %}
+</div>
+{% endblock %}

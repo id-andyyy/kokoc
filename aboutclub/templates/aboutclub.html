@@ -1,0 +1,671 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<style>
+    .hero {
+        border-radius: 10px;
+      background: url("{% static 'img/club_photo_4.jpg' %}") no-repeat center center/cover;
+      color: white;
+      padding: 100px 0;
+      text-align: center;
+      text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.9);
+       box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+    }
+    .hero h1 {
+      font-size: 3rem;
+      animation: fadeInDown 1s;
+    }
+    .hero p {
+      font-size: 1.5rem;
+      animation: fadeInUp 1.5s;
+    }
+    .section-title {
+      text-align: center;
+      margin: 50px 0;
+      font-size: 2.5rem;
+      animation: fadeIn 1s;
+    }
+    .club-history {
+       background-color: #f8f9fa;
+      padding: 50px 0;
+    }
+    .club-history img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      animation: fadeIn 1.5s;
+      transition: transform 0.3s ease;
+      box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+
+    }
+    .club-history img:hover {
+      transform: scale(1.01);
+      box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+    }
+    .contact-info {
+      background-color: #f8f9fa;
+    }
+    .contact-card {
+      padding: 30px;
+      transition: all 0.3s ease;
+      animation: fadeIn 2s;
+      margin-bottom: 40px;
+    }
+    .contact-card:hover {
+      transform: scale(1.05);
+      background-color: #E22626;
+      color: white;
+    }
+    @keyframes fadeInDown {
+      0% { opacity: 0; transform: translateY(-50px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(50px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+</style>
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container">
+        <h1 style="">Добро пожаловать в наш футбольный клуб</h1>
+        <p style="">Стремимся к совершенству как на поле, так и вне его</p>
+    </div>
+</section>
+
+<!-- About Section -->
+<section class="club-history">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <h2 class="section-title">Начало пути</h2>
+                <p>Футбольный клуб "Кокосы" возник из корпоративной команды группы компаний "Кокос".
+                    Сотрудники, увлеченные футболом, участвовали в любительских турнирах, привлекая внимание коллег,
+                    родственников и друзей.
+                    Президент компании Александр Шакуров, вдохновленный потенциалом команды, решил создать полноценный
+                    футбольный клуб для участия в серьезных турнирах.
+                    Михаил Пиминов, профессиональный футболист, стал капитаном и тренером, выстроив систему тренировок
+                    и селекции игроков.</p>
+            </div>
+            <div class="col-md-6">
+                <img src="{% static 'img/club_photo.jpg' %}" alt="Изображение истории клуба">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section class="club-history">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <img src="{% static 'img/club_photo_2.jpg' %}" alt="Изображение истории клуба">
+            </div>
+            <div class="col-md-6">
+                <h2 class="section-title">Суперлига-F 2021</h2>
+                <p>"Кокосы" дебютировали в летнем сезоне Суперлиги-F, попав в "группу смерти" с сильными соперниками.
+                    Победа над "Альтерон" (2-1) внушила уверенность, но поражение от "Эксклюзив" (1-4) выявило слабые
+                    места. "Сумашедший гол" — напряженный матч, завершившийся ничьей, но важной для сохранения шансов на
+                    выход
+                    из группы."Кокосы" вышли в плей-офф, где обыграли "Восток Сервис" (1-0 по пенальти) и "Розгруз" (по
+                    пенальти) в полуфинале.
+                </p>
+                <p>Финал Суперлиги-F 2021:
+                    В финале "Кокосы" встретились с "Добрым" и победили (2-1), став чемпионами Суперлиги-F 2021.
+                    "Кокосы" продемонстрировали сплоченность и силу, подтвердив свой потенциал. </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+<hr>
+
+<style>
+    .timeline-content {
+        flex: 2;
+        padding-left: 50px;
+        position: relative;
+    }
+
+    .timeline {
+        position: relative;
+        margin: 0;
+        padding: 0;
+    }
+
+    .timeline-event {
+        width: 45%; /* Одинаковая ширина для обеих сторон */
+        min-height: 100px;
+        padding: 10px;
+        background: #ffffff;
+        border-radius: 10px;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+        position: relative;
+    }
+
+    .timeline-event h5 {
+        font-size: 1.2rem;
+        margin: 0;
+    }
+
+    .timeline-event p {
+        font-size: 0.9rem;
+        margin: 0;
+    }
+
+    .timeline-line {
+        position: absolute;
+        left: 50%;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background: #E22626;
+        z-index: 1;
+    }
+
+    .timeline-dot {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: #007bff;
+        z-index: 2;
+    }
+
+    .timeline-event-left {
+        left: 0;
+        text-align: right;
+        margin-right: 50%; /* Смещение влево от центральной линии */
+    }
+
+    .timeline-event-right {
+        left: 50%;
+        text-align: left;
+        margin-left: 5%; /* Смещение вправо от центральной линии */
+    }
+
+    /* Корректировка положения точек */
+    .timeline-event-left .timeline-dot {
+        left: calc(100% + 10px); /* Слева, с отступом от карточки */
+    }
+
+    .timeline-event-right .timeline-dot {
+        left: -30px; /* Справа, с отступом от карточки */
+    }
+
+    /* Корректировка для изображений */
+    .timeline-image img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+        transition: transform 0.3s ease, opacity 0.5s ease;
+    }
+
+    /* Анимация для изображений */
+    .image-fade-out {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    .image-fade-in {
+        opacity: 1;
+        transform: scale(1);
+    }
+    /* Адаптация для мобильных устройств */
+/* Адаптация для мобильных устройств */
+@media (max-width: 768px) {
+    .timeline-section {
+        flex-direction: column;
+        padding: 30px 0;
+    }
+
+    @media (max-width: 768px) {
+        .timeline-section {
+            display: none;
+        }
+    }
+
+    /* Изображение и текст теперь будут отображаться одно под другим */
+    .timeline-image {
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+    .timeline-content {
+        padding-left: 0;
+    }
+
+    .timeline-event {
+        width: 100%; /* Карточки занимают всю ширину */
+        max-width: 400px; /* Максимальная ширина карточек для лучшего отображения */
+        margin: 20px auto; /* Центрируем карточки с отступом сверху и снизу */
+        text-align: center; /* Центрируем текст внутри карточек */
+    }
+
+    /* Убираем отступы и выравнивание для левых и правых карточек */
+    .timeline-event-left,
+    .timeline-event-right {
+        margin: 0 auto; /* Центрируем карточки */
+        text-align: center; /* Центрируем текст */
+    }
+
+    /* Убираем точки и линию на мобильных */
+    .timeline-line,
+    .timeline-dot {
+        display: none;
+    }
+
+    /* Уменьшаем отступы для изображений */
+    .timeline-image img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+
+</style>
+
+
+<!-- Timeline Section -->
+<section class="timeline-section mt-5">
+    <h2 class="text-center mb-4">История клуба</h2>
+    <div class="container">
+        <div class="row">
+            <!-- Left Image Block -->
+            <div class="col-md-6 timeline-image">
+                <img id="timeline-image" src="{% static 'img/club_photo_5.jpg' %}" alt="Дорожная карта клуба">
+            </div>
+
+            <!-- Right Timeline Block -->
+            <div class="col-md-6 timeline-content">
+                <div class="timeline">
+                    <div class="timeline-line"></div>
+
+                    <!-- Timeline Event 1 -->
+                    <div class="timeline-event timeline-event-left" data-image="{% static 'img/club_photo_5.jpg' %}">
+                        <div class="timeline-dot" style="top: 0;"></div>
+                        <h5>Основание клуба</h5>
+                        <p>Клуб был основан в 2010 году с целью участия в любительских турнирах.</p>
+                    </div>
+
+                    <!-- Timeline Event 2 -->
+                    <div class="timeline-event timeline-event-right" data-image="{% static 'img/club_photo_6.jpg' %}">
+                        <div class="timeline-dot" style="top: 20%;"></div>
+                        <h5>Первое чемпионство</h5>
+                        <p>В 2012 году клуб впервые стал чемпионом любительской лиги.</p>
+                    </div>
+
+                    <!-- Timeline Event 3 -->
+                    <div class="timeline-event timeline-event-left" data-image="{% static 'img/club_photo_7.jpg' %}">
+                        <div class="timeline-dot" style="top: 40%;"></div>
+                        <h5>Присоединение к Суперлиге</h5>
+                        <p>В 2021 году "Кокосы" присоединились к Суперлиге-F и одержали победу.</p>
+                    </div>
+
+                    <!-- Timeline Event 4 -->
+                    <div class="timeline-event timeline-event-right" data-image="{% static 'img/club_photo_8.jpg' %}">
+                        <div class="timeline-dot" style="top: 60%;"></div>
+                        <h5>Международные успехи</h5>
+                        <p>В 2023 году клуб принял участие в международных турнирах и занял призовые места.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    // JavaScript to handle the dynamic image change
+    const events = document.querySelectorAll('.timeline-event');
+    const image = document.getElementById('timeline-image');
+
+    events.forEach(event => {
+        event.addEventListener('click', () => {
+            const newImageSrc = event.getAttribute('data-image');
+
+            // Add fade out effect
+            image.classList.add('image-fade-out');
+
+            setTimeout(() => {
+                // Change the image source
+                image.src = newImageSrc;
+
+                // Remove fade out and add fade in effect
+                image.classList.remove('image-fade-out');
+                image.classList.add('image-fade-in');
+            }, 300);
+
+            setTimeout(() => {
+                // Remove fade in effect after animation completes
+                image.classList.remove('image-fade-in');
+            }, 600);
+        });
+    });
+</script>
+
+
+<!-- Sponosor Section-->
+<style>
+    .sponsor-logo {
+    max-width: 100%;
+    height: auto;
+    transition: transform 0.3s;
+}
+
+.sponsor-link:hover .sponsor-logo {
+    transform: scale(1.1);
+    filter: hue-rotate(280deg) saturate(1000)
+}
+
+.sponsor-link:hover .sponsor-logo_pik {
+    filter: hue-rotate(500deg) saturate(1000)
+}
+
+</style>
+<!-- Club Mission Section -->
+<section class="club-mission">
+    <div class="container">
+        <h2 class="section-title">Наша миссия</h2>
+        <div class="marquee">
+            <div class="marquee-content">
+                <div class="row">
+                    <div class="col col-lg-4 col-md-12 col-sm-12">
+                        <div class="card text-white bg-primary p-3 mission-card mx-auto mb-4">
+                            <div class="card-body">
+                                <h5 class="card-title">Пропагандировать спортивный дух</h5>
+                                <p class="card-text">Мы стремимся к продвижению честной игры, уважения и целостности как
+                                    на поле, так и вне его.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12 col-sm-12">
+                        <div class="card p-3 mission-card mx-auto mb-4">
+                            <div class="card-body">
+                                <h5 class="card-title">Развивать таланты</h5>
+                                <p class="card-text">Наша молодежная академия взращивает юные таланты и подготавливает
+                                    их к вызовам профессионального футбола.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12 col-sm-12">
+                        <div class="card text-white bg-primary p-3 mission-card mx-auto mb-4">
+                            <div class="card-body">
+                                <h5 class="card-title">Взаимодействовать с сообществом</h5>
+                                <p class="card-text">Мы активно взаимодействуем с местным сообществом, организуя
+                                    мероприятия и поддерживая местные инициативы.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="marquee-gap"></div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-12 col-sm-12">
+                        <div class="card p-3 mission-card mx-auto mb-4">
+                            <div class="card-body">
+                                <h5 class="card-title">Пропагандировать спортивный дух</h5>
+                                <p class="card-text">Мы стремимся к продвижению честной игры, уважения и целостности как
+                                    на поле, так и вне его.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12 col-sm-12">
+                        <div class="card text-white bg-primary p-3 mission-card mx-auto mb-4">
+                            <div class="card-body">
+                                <h5 class="card-title">Развивать таланты</h5>
+                                <p class="card-text">Наша молодежная академия взращивает юные таланты и подготавливает
+                                    их к вызовам профессионального футбола.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12 col-sm-12">
+                        <div class="card p-3 mission-card mx-auto mb-4">
+                            <div class="card-body">
+                                <h5 class="card-title">Взаимодействовать с сообществом</h5>
+                                <p class="card-text">Мы активно взаимодействуем с местным сообществом, организуя
+                                    мероприятия и поддерживая яркие инициативы.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<hr>
+<div class="container mt-5">
+    <h2 class="text-center mb-4 section-title">Наши спонсоры</h2>
+    <div class="row text-center" style="">
+        <div class="col-md-4 mb-4">
+            <a href="https://magnit.ru/" target="_blank" class="sponsor-link">
+                <img src="https://kokocgroup.ru/media/client_logos/magnit_uOvh2vL.svg" alt="Sponsor 1"
+                     class="img-fluid sponsor-logo">
+            </a>
+        </div>
+        <div class="col-md-4 mb-4">
+            <a href="https://gorzdrav.org/" target="_blank" class="sponsor-link">
+                <img src="https://kokocgroup.ru/media/client_logos/gorzdrav_foGfJKg.svg" alt="Sponsor 2"
+                     class="img-fluid sponsor-logo">
+            </a>
+        </div>
+        <div class="col-md-4 mb-4">
+            <a href="https://new-msk.skylink.ru/" target="_blank" class="sponsor-link">
+                <img src="https://kokocgroup.ru/media/client_logos/skylink_whaM8xw.svg" alt="Sponsor 3"
+                     class="img-fluid sponsor-logo">
+            </a>
+        </div>
+        <div class="col-md-4 mb-4">
+            <a href="https://spartak.com/" target="_blank" class="sponsor-link">
+                <img src="https://kokocgroup.ru/media/client_logos/spartak_hcByi7J.svg" alt="Sponsor 4"
+                     class="img-fluid sponsor-logo">
+            </a>
+        </div>
+        <div class="col-md-4 mb-4">
+            <a href="https://www.pik.ru/" target="_blank" class="sponsor-link">
+                <img src="https://kokocgroup.ru/media/client_logo/pik-logo.svg" alt="Sponsor 5"
+                     class="img-fluid sponsor-logo">
+            </a>
+        </div>
+        <div class="col-md-4 mb-4">
+            <a href="https://www.perekrestok.ru/" target="_blank" class="sponsor-link">
+                <img src="https://kokocgroup.ru/media/client_logos/perekrestok_JyWc4o9.svg" alt="Sponsor 6"
+                     class="img-fluid sponsor-logo">
+            </a>
+        </div>
+        <div class="col-md-4 mb-4">
+            <a href="https://urent.ru/" target="_blank" class="sponsor-link">
+                <img src="https://kokocgroup.ru/media/client_logos/urent_53hkCq3.svg" alt="Sponsor 7"
+                     class="img-fluid sponsor-logo">
+            </a>
+        </div>
+        <div class="col-md-4 mb-4">
+            <a href="https://dostavista.ru/" target="_blank" class="sponsor-link">
+                <img src="https://kokocgroup.ru/media/client_logos/dostavista_a3PD87a.svg" alt="Sponsor 8"
+                     class="img-fluid sponsor-logo">
+            </a>
+        </div>
+        <div class="col-md-4 mb-4">
+            <a href="https://okko.tv/" target="_blank" class="sponsor-link">
+                <img src="https://kokocgroup.ru/media/client_logos/okko_sxFOfX3.svg" alt="Sponsor 9"
+                     class="img-fluid sponsor-logo">
+            </a>
+        </div>
+    </div>
+    <div class="row text-center">
+        <div class="col-md-12 mb-4">
+            <a href="https://moscow.petrovich.ru/" target="_blank" class="sponsor-link">
+                <img src="https://kokocgroup.ru/media/client_logos/petrovich_MIORP18.svg" alt="Sponsor 10"
+                     class="img-fluid sponsor-logo">
+            </a>
+        </div>
+    </div>
+</div>
+
+
+<style>
+    .marquee {
+      overflow: hidden;
+      position: relative;
+      height: 300px;
+    }
+
+    @media (max-width: 992px) {
+        .marquee {
+            height: unset;
+            padding-bottom: 50px
+        }
+    }
+
+    .marquee-content {
+      display: flex;
+      animation: scrollLeft 15s linear infinite;
+      width: 200%;
+      align-items: center;
+    }
+
+    @media (max-width: 992px) {
+        .marquee-content {
+            animation: unset;
+        }
+    }
+
+    .marquee-gap {
+      min-width: 50px;
+    }
+
+    .mission-card {
+        height: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      width: 100%;
+    transition: transform 0.3s ease;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+      }
+
+      @media (max-width: 1200px) {
+        .mission-card {
+            height: 250px;
+        }
+      }
+
+      @media (max-width: 992px) {
+        .mission-card {
+            height: unset;
+        }
+      }
+
+      .mission-card:hover {
+      transform: scale(1.01);
+      box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+      }
+
+    .card-title {
+      font-weight: bold;
+    }
+
+    .card-text {
+      font-size: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .marquee {
+        height: auto;
+      }
+
+      .marquee-content {
+        flex-direction: row;
+        width: 200%;
+      }
+
+      .mission-card {
+        width: 90%;
+        height: auto;
+        margin-bottom: 15px;
+        }
+      .card-text {
+        font-size: 0.9rem;
+      }
+    }
+
+    @keyframes scrollLeft {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    @keyframes scrollLeftMobile {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .contacts__card {
+        text-decoration: none;
+    }
+</style>
+
+<!-- Contact Section -->
+<section class="contact-info">
+    <div class="container">
+        <h2 class="section-title">Свяжитесь с нами</h2>
+        <div class="row">
+            <a href="https://yandex.ru/maps/-/CDXojKzF" target="_blank" class="contacts__card col-md-12 col-xl-4">
+                <div class="contact-card card text-center shadow">
+                    <div class="card-body" style="min-height: 200px; max-height: 200px;">
+                        <h5 class="card-title">Адрес</h5>
+                        <p class="card-text" style="white-space: nowrap; font-size: 1rem;">Москва, Цветной Бульвар,
+                            30с1</p>
+                        <img src="{% static 'img/gps.png' %}" alt="Location" class="img-fluid mt-3"
+                             style="width: 4rem; height: 4rem;">
+                    </div>
+                </div>
+            </a>
+            <a href="tel:84953080110" target="_blank" class="contacts__card col-md-12 col-xl-4">
+                <div class="contact-card card text-center shadow">
+                    <div class="card-body" style="min-height: 200px; max-height: 200px;">
+                        <h5 class="card-title">Контактный телефон</h5>
+                        <p class="card-text">+7 (495) 30 80 110</p>
+                        <img src="{% static 'img/phone-call.png' %}" alt="Phone" class="img-fluid mt-3"
+                             style="width: 4rem; height: 4rem;">
+                    </div>
+                </div>
+            </a>
+            <a href="mailto:hello@kokocgroup.ru" target="_blank" class="contacts__card col-md-12 col-xl-4">
+                <div class="contact-card card text-center shadow">
+                    <div class="card-body" style="min-height: 200px; max-height: 200px;">
+                        <h5 class="card-title">Почта</h5>
+                        <p class="card-text">hello@kokocgroup.ru</p>
+                        <img src="{% static 'img/email.png' %}" alt="Email" class="img-fluid mt-3"
+                             style="width: 4rem; height: 4rem;">
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+<section class="about__links text-center pb-5">
+    <h2 class="text-center section-title">Мы в соцсетях</h2>
+    <div class="d-flex justify-content-center gap-3">
+        <a href="https://t.me/s/fckokocgroup" target="_blank" class="btn btn-info">Telegram</a>
+        <a href="https://vk.com/kokocgroup_ru" target="_blank" class="btn btn-danger">ВКонтакте</a>
+        <a href="https://kokocgroup.ru/" target="_blank" class="btn btn-primary">Kokoc Group</a>
+    </div>
+</section>
+
+{% endblock %}
