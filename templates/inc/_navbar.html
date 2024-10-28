@@ -1,0 +1,50 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg bg-primary mb-3" data-bs-theme="dark">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="/home">
+            <img src="{% static 'img/kokoc_logo_white.png'%}" alt="Logo" width="24" height="24"
+                 class="d-inline-block align-text-top">
+            Kokoc
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
+                aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav me-auto">
+                <li>
+                    <a class="nav-link {% if request.path == '/home' %}active{% endif %}" href="/home">Главная</a>
+                </li>
+                <li>
+                    <a class="nav-link {% if request.path == '/news' %}active{% endif %}" href="/news">Новости</a>
+                </li>
+                <li>
+                    <a class="nav-link {% if request.path == '/team/' %}active{% endif %}" href="/team">Команда</a>
+                </li>
+                <li>
+                    <a class="nav-link {% if request.path == '/matches' %}active{% endif %}" href="/matches">Матчи</a>
+                </li>
+                <li>
+                    <a class="nav-link {% if request.path == '/shop' %}active{% endif %}" href="/shop">Магазин</a>
+                </li>
+            </ul>
+            <!--            <form class="d-flex">-->
+            <!--                <input class="form-control me-sm-2" type="search" placeholder="Search">-->
+            <!--                <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>-->
+            <!--            </form>-->
+            {% if user.is_authenticated %}
+            <a href="shop" class="nav__money-btn me-3">
+                <span class="text-light me-1">17</span>
+                <img src="{% static 'img/kokoc.png' %}" alt="бонусов">
+            </a>
+            {% if request.path == '/profile' %}
+            <a class="btn btn-secondary" href="/log_out">Выйти</a>
+            {% else %}
+            <a class="nav__profile-btn" href="/profile"><img src="{% static 'img/profile.png' %}" alt="Профиль"></a>
+            {% endif %}
+            {% else %}
+            <a class="btn btn-secondary" href="/log_in">Войти</a>
+            {% endif %}
+        </div>
+    </div>
+</nav>

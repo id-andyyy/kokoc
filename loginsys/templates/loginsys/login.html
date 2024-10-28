@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block title %} Вход {% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-6 col-lg-4">
+            <h3 class="text-center mb-4">Вход</h3>
+            <form action="/log_in" method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="email" class="form-label">Электронная почта</label>
+                    {{form.email}}
+                </div>
+
+                <div class="mb-3">
+                    <label for="password" class="form-label">Пароль</label>
+                    {{form.password}}
+                </div>
+                <div class="mb-3">
+                    {{form.captcha}}
+                </div>
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary">Войти</button>
+                </div>
+
+                <div class="text-center">
+                    <p></p>
+                    <p class="">Нет аккаунта? <a href="/sign_up" class="btn btn-link">Зарегистрироваться</a></p>
+                </div>
+                <div class="text-center">
+                    <p><a href="/forgot-password" class="btn btn-link">Забыли пароль?</a></p>
+                </div>
+            </form>
+
+            {% if messages %}
+            <ul class="messages mt-3">
+                {% for message in messages %}
+                <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

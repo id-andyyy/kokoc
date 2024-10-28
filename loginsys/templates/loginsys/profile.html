@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% block title %} Профиль {% endblock %}
+{% block content %}
+
+<div class="row" style="padding: 5%;">
+    <div class="col-lg-4">
+        <div class="card mb-4">
+            <div class="card-body text-center">
+                <img src="{{ profile.photo.url }}" alt="Profile Photo"
+                     class="rounded-circle img-fluid" style="width: 150px; height: 150px;">
+                <h5 class="my-3">{{name}}</h5>
+                <div class="d-flex justify-content-center mb-2">
+
+                    <a type="button" href="/edit_profile" data-mdb-button-init data-mdb-ripple-init
+                       class="btn btn-outline-primary">Редактировать профиль
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-8">
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <p class="mb-0">Имя</p>
+                    </div>
+                    <div class="col-sm-8">
+                        <p class="text-muted mb-0">{{name}}</p>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <p class="mb-0">Почта</p>
+                    </div>
+                    <div class="col-sm-8">
+                        <p class="text-muted mb-0">{{email}}</p>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <p class="mb-0">Дата рождения</p>
+                    </div>
+                    <div class="col-sm-8">
+                        <p class="text-muted mb-0">{{date}}</p>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <p class="mb-0">Дата регистрации</p>
+                    </div>
+                    <div class="col-sm-8">
+                        <p class="text-muted mb-0">{{date_joined}}</p>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    {% if messages %}
+                    <ul class="messages">
+                        {% for message in messages %}
+                        <li>
+                            {{ message }}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+</section>
+{% endblock %}

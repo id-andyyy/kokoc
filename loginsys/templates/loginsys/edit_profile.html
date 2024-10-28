@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block title %}Редактировать профиль{% endblock %}
+{% block content %}
+<div class="row row-cols-1 row-cols-md-2 mt-5 gx-5">
+    <div class="justify-content-center">
+        <h2 class="text-center mb-4">Редактировать данные</h2>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="password" class="form-label">Имя:</label>
+                {{ user_form.first_name }}
+            </div>
+            <div class="mb-3">
+                <label for="birthdate" class="form-label">Дата рождения:</label>
+                {{ profile_form.birthdate }}
+            </div>
+            <div class="mb-3">
+                <label for="photo" class="form-label">Фотография:</label>
+                <br>
+                {{ profile_form.photo }}
+            </div>
+            <button type="submit" name="update_profile" class="btn btn-primary">Сохранить</button>
+        </form>
+    </div>
+    <div class="justify-content-center">
+        <h2 class="text-center mb-4">Изменить пароль</h2>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="old_password" class="form-label">{{ password_form.old_password.label_tag }}</label>
+                {{ password_form.old_password}}
+            </div>
+            <div class="mb-3">
+                <label for="new_password2" class="form-label">{{password_form.new_password1.label_tag}}</label>
+                {{ password_form.new_password1}}
+            </div>
+            <label for="new_password2" class="form-label">{{password_form.new_password2.label_tag}}</label>
+            <div class="mb-3">
+                {{ password_form.new_password2}}
+            </div>
+            <button type="submit" name="update_password" class="btn btn-primary">Сменить пароль</button>
+        </form>
+    </div>
+    {% if password_form.errors %}
+    <p></p>
+    <div class="col-md-1 col-lg-6">
+        {% for field, error in password_form.errors.items %}
+        <p class="mb-1">
+            - {{ error | striptags }}
+        </p>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
