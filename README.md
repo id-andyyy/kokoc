@@ -6,7 +6,7 @@
 
 # Kokos Group FC&nbsp;&#129381;
 
-The website of the Kokoc Group Football Club&nbsp;&#129381;. Created as part of the hackathon [Kokoc Hackaton&nbsp;2024&nbsp;&#128104;&#8205;&#128187;](https://codenrock.com/contests/kokochackathon2024#/).
+The website of the Kokoc Group Football Club&nbsp;&#129381;. Created as part of the [Kokoc Hackaton&nbsp;2024&nbsp;&#128104;&#8205;&#128187;](https://codenrock.com/contests/kokochackathon2024#/).
 
 ## Description
 
