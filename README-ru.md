@@ -68,7 +68,7 @@ python manage.py runserver
 ## Обратная связь
 
 Буду признателен, если вы поставите звезду&nbsp;&#11088;. Если вы нашли баг или у вас есть предложения по улучшению,
-используйте раздел [Issues](https://github.com/id-andyyy/Fruit-Idioms/issues).
+используйте раздел [Issues](https://github.com/id-andyyy/kokoc/issues).
 
 ## Авторы
 
