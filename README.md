@@ -67,7 +67,7 @@ For the project to work correctly, you need to create a `.env` file at the root 
 
 ## Feedback
 
-I would appreciate it if you give a star ⭐. If you find a bug or have suggestions for improvement, use the [Issues](https://github.com/id-andyyy/Fruit-Idioms/issues) section.
+I would appreciate it if you give a star ⭐. If you find a bug or have suggestions for improvement, use the [Issues](https://github.com/id-andyyy/kokoc/issues) section.
 
 ## Authors
 
