@@ -69,7 +69,7 @@ For the project to work correctly, you need to create a `.env` file at the root 
 
 I would appreciate it if you give a star ⭐. If you find a bug or have suggestions for improvement, use the [Issues](https://github.com/id-andyyy/kokoc/issues) section.
 
-## Authors
+## Team
 
 The [Mojarung](https://t.me/mojarung) development team:
 

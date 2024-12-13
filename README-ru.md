@@ -70,7 +70,7 @@ python manage.py runserver
 Буду признателен, если вы поставите звезду&nbsp;&#11088;. Если вы нашли баг или у вас есть предложения по улучшению,
 используйте раздел [Issues](https://github.com/id-andyyy/kokoc/issues).
 
-## Авторы
+## Команда
 
 Команда разработчиков [Mojarung](https://t.me/mojarung):
 
