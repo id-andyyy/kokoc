@@ -74,8 +74,8 @@ python manage.py runserver
 
 Команда разработчиков [Mojarung](https://t.me/mojarung):
 
-- [Андрей Обрезков](https://github.com/id-andyyy) (fullstack developer)
-- [Кирилл Вериялов](https://github.com/verikirill) (fullstack developer)
-- [Ярослав Ролдугин](https://github.com/Felicuss) (backend developer)
+- [Андрей Обрезков](https://github.com/id-andyyy) (Fullstack developer)
+- [Кирилл Вериялов](https://github.com/verikirill) (Fullstack developer)
+- [Ярослав Ролдугин](https://github.com/Felicuss) (Backend developer)
 
 Читать на [английском&nbsp;&#127468;&#127463;](README.md)

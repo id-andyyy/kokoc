@@ -73,8 +73,8 @@ I would appreciate it if you give a star ⭐. If you find a bug or have suggesti
 
 The [Mojarung](https://t.me/mojarung) development team:
 
-- [Andrey Obrezkov](https://github.com/id-andyyy) (fullstack developer)
-- [Kirill Veriyalov](https://github.com/verikirill) (fullstack developer)
-- [Yaroslav Roldugin](https://github.com/Felicuss) (backend developer)
+- [Andrey Obrezkov](https://github.com/id-andyyy) (Fullstack developer)
+- [Kirill Veriyalov](https://github.com/verikirill) (Fullstack developer)
+- [Yaroslav Roldugin](https://github.com/Felicuss) (Backend developer)
 
 Read in [Russian&nbsp;&#127479;&#127482;](README-ru.md)
